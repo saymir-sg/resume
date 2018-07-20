@@ -39,7 +39,7 @@
 			{ "txt": "My true passion is all about User experience and User Interface Design. Always keeping it simple, clean and effective. This is my mantra and method. Clean code, fussfree interfaces and expert execution, design as it should be."},
 			{ "txt": "I truly believe in delivering a beutiful product. I like Beautiful Apps. Good looking websites. Cricket. Love nearly all genres of music. And many other things!"}
 		],
-		"img":"http://localhost:4200/assets/img/about-img.jpg"
+		"img":"https://saymir-sg.github.io/resume/assets/img/about-img.jpg"
 	},
 	"resume":{
 		"edu_title" : "Education",
@@ -77,56 +77,56 @@
 				"p_id": "01",
 				"title": "Fudpro",
 				"sub_title": "Mobile App Design",
-				"img": "http://localhost:4200/assets/img/fudpro.jpg",
+				"img": "https://saymir-sg.github.io/resume/assets/img/fudpro.jpg",
 				"desc": ""
 			},
 			{
 				"p_id": "02",
 				"title": "TSEC",
 				"sub_title": "Mobile App Design",
-				"img": "http://localhost:4200/assets/img/tsec.jpg",
+				"img": "https://saymir-sg.github.io/resume/assets/img/tsec.jpg",
 				"desc": ""
 			},
 			{
 				"p_id": "03",
 				"title": "Profilo",
 				"sub_title": "Mobile App Design",
-				"img": "http://localhost:4200/assets/img/profilo.jpg",
+				"img": "https://saymir-sg.github.io/resume/assets/img/profilo.jpg",
 				"desc": ""
 			},
 			{
 				"p_id": "04",
 				"title": "AllisWell India",
 				"sub_title": "Website Design",
-				"img": "http://localhost:4200/assets/img/alliswell.jpg",
+				"img": "https://saymir-sg.github.io/resume/assets/img/alliswell.jpg",
 				"desc": ""
 			},
 			{
 				"p_id": "04",
 				"title": "Procreate",
 				"sub_title": "Website Design",
-				"img": "http://localhost:4200/assets/img/procreate.jpg",
+				"img": "https://saymir-sg.github.io/resume/assets/img/procreate.jpg",
 				"desc": ""
 			},
 			{
 				"p_id": "05",
 				"title": "Prognosys",
 				"sub_title": "Website Design",
-				"img": "http://localhost:4200/assets/img/prognosys.jpg",
+				"img": "https://saymir-sg.github.io/resume/assets/img/prognosys.jpg",
 				"desc": ""
 			},
 			{
 				"p_id": "06",
 				"title": "Soulesence",
 				"sub_title": "Ecommerce Website Design",
-				"img": "http://localhost:4200/assets/img/soulesence.jpg",
+				"img": "https://saymir-sg.github.io/resume/assets/img/soulesence.jpg",
 				"desc": ""
 			},
 			{
 				"p_id": "07",
 				"title": "Texclo",
 				"sub_title": "Wordpress Website Design",
-				"img": "http://localhost:4200/assets/img/texclo.jpg",
+				"img": "https://saymir-sg.github.io/resume/assets/img/texclo.jpg",
 				"desc": ""
 			}
 		]
