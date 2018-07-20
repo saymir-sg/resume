@@ -1,0 +1,81 @@
+
+/* mixins.scss File */
+
+// Browser Prefixes
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+	-moz-transform: $transforms;
+	-ms-transform: $transforms;
+	transform: $transforms;
+}
+
+// Rotate
+@mixin rotate ($deg) { 
+	@include transform(rotate(#{$deg}deg));
+}
+
+// Scale
+@mixin scale($scale) {
+	@include transform(scale($scale));
+}
+
+// Translate
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+// Skew
+@mixin skew ($x, $y) {
+	@include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+// Transform Origin
+@mixin transform-origin ($origin) {
+    	-webkit-transform-origin: $origin;
+    	-moz-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
+@mixin transition ($property: all, $duration: .3s, $ease: linear){
+	-webkit-transition: $property $duration $ease;
+	-moz-transition: $property $duration $ease;
+	-o-transition: $property $duration $ease;
+	transition: $property $duration $ease;
+}
+
+
+@mixin gradient-text($gradient, $bg : 'light') {
+	@supports(mix-blend-mode: lighten) {
+	  display: inline-block;
+	  position: relative;
+	  
+	  &::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		
+		background: unquote($gradient);
+		pointer-events: none;
+	  }
+  
+	  @if ($bg == 'light') {
+		color: #000;
+		background: #fcfcfc;
+		mix-blend-mode: multiply;
+  
+		&::before {
+		  mix-blend-mode: screen;
+		}
+	  } @else {
+		color: #fcfcfc;
+		background: #000;
+		mix-blend-mode: lighten;
+  
+		&::before {
+		  mix-blend-mode: multiply;
+		}
+	  }
+	}
+  }

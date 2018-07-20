@@ -1,20 +1,239 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- <div class="fixed-bar top-bar"></div>
+<div class="fixed-bar bottom-bar"></div>
+<div class="fixed-bar left-bar"></div>
+<div class="fixed-bar right-bar"></div> -->
 
+<div class="w-100 h-100 grids-container">
+  <div class="grids_div">
+    <div style="background-image:url('assets/img/grid.png');"></div>
+  </div>
+  <div class="grids_div">
+    <div style="background-image:url('assets/img/grid.png');"></div>
+  </div>
+  <div class="grids_div">
+    <div style="background-image:url('assets/img/grid.png');"></div>
+  </div>
+  <div class="grids_div">
+    <div style="background-image:url('assets/img/grid.png');"></div>
+  </div>
+  <div class="grids_div">
+    <div style="background-image:url('assets/img/grid.png');"></div>
+  </div>
+  <div class="grids_div">
+    <div style="background-image:url('assets/img/grid.png');"></div>
+  </div>
+  <div class="grids_div">
+    <div style="background-image:url('assets/img/grid.png');"></div>
+  </div>
+</div>
+
+<nav class="navbar fixed-top bg-transparent">
+  <div class="row w-100">
+      <a class="navbar-brand" href="#"><img src="assets/img/logo.png"></a>
+      <div class="button_container" id="toggle" (click)='toggleMenu()' [ngClass]="activeClass ? 'active' : ''">
+        <span class="top"></span>
+        <span class="middle"></span>
+        <span class="bottom"></span>
+      </div>
+  </div>
+</nav>
+
+<div class="overlay" id="overlay" [ngClass]="activeClass ? 'open' : ''" *ngIf="contact">
+    <nav class="overlay-menu">
+      <div class="social-links">
+        <a href="#"><img src="assets/img/git_logo.png" class="img-fluid"/></a>
+        <a href="#"><img src="assets/img/behance_logo.png" class="img-fluid"/></a>
+        <a href="#"><img src="assets/img/insta_logo.png" class="img-fluid"/></a>
+        <a href="#"><img src="assets/img/linked_in_logo.png" class="img-fluid"/></a>
+      </div>
+      <ul class="navbar-nav mr-auto" *ngIf="menu">
+        <li class="nav-item " (click)='activeMenu(links.name)' *ngFor="let links of menu;" [ngClass]="{'active' : links.name === selected}">
+          <a class="nav-link" scrollTo href="{{links.link}}">{{links.name}}</a>
+        </li>
+      </ul>
+      <div class="contact-info">
+          <div class="row">
+              <h5><i class="fa fa-phone"></i> <a href="{{contact.email}}">{{contact.mobile}}</a></h5>
+              <h5><i class="fa fa-envelope"></i> <a href="mailto:{{contact.email}}">{{contact.email}}</a></h5>
+          </div>
+      </div>
+      <span class="inner-circle circle1"></span>
+      <span class="inner-circle circle2"></span>
+    </nav>
+</div>
+
+<section class="section home-section" id="home">
+  <div class="inner-section h-100">
+     <div class="div_box h-100">
+        <div class="row mx-0 h-100">
+            <div class="jumbotron" *ngIf="intro">
+                <h1 class="animated fadeInLeft">{{intro.title}}</h1>
+                <h2 class="animated fadeInRight" [innerHTML]="intro.name"></h2>
+                <h4 class="animated fadeInLeft">{{intro.profile}}</h4>
+            </div>
+            <span class="inner-circle circle1"></span>
+            <span class="inner-circle circle2"></span> 
+          </div>
+     </div>
+  </div>
+</section>
+
+<section class="section about-section" id="about" *ngIf="about">
+  <div class="inner-section h-100">
+    <div class="div_box h-100">
+      <div class="row mx-0 h-100">
+        <div class="inner-row">
+          <div class="row mx-0">
+            <div class="col-md-4">
+              <img src="{{about.img}}" class="img-fluid"/>
+              <span class="inner-circle circle1"></span>
+              <span class="inner-circle circle2"></span>
+            </div>
+            <div class="col-md-8">
+                <h2 class="title">{{about.title}}</h2>
+                <div class="content">
+                   <p class="txt" *ngFor="let txt of about.about_txt">{{txt.txt}}</p>
+                </div>
+                <!-- <div class="content" [innerHTML]="about.about_txt.join('')"></div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section resume-section" id="resume" *ngIf="resume">
+  <div class="inner-section h-100">
+    <div class="div_box h-100">
+       <div class="row mx-0 h-100">
+          <div class="inner-row">
+            <div class="education-wrapper">
+      
+                <div class="row mx-0">
+                    <div class="col col-2">
+                        <h2 class="title mb-0">{{resume.edu_title}}</h2>
+                    </div>
+                    <div class="col col-5" *ngFor="let item of resume.education">
+                       <div class="inner-box">
+                          <p class="text-uppercase txt-blue">{{item.title}}</p>
+                          <p class="text-uppercase">{{item.from}}</p>
+                          <p class="text-uppercase">{{item.session}}</p>
+                       </div>
+                    </div>
+                </div>
+            </div>
+            <div class="experience-wrapper">
+                <div class="row mx-0">
+                    <div class="col col-2 order-last">
+                        <h2 class="title mb-0">{{resume.exp_title}}</h2>
+                    </div>
+                    <div class="col col-5" *ngFor="let item of resume.experience">
+                        <div class="inner-box">
+                           <p class="text-uppercase txt-blue">{{item.title}}</p>
+                           <p class="text-uppercase">{{item.company}}</p>
+                           <p class="text-uppercase">{{item.session}}</p>
+                        </div>
+                     </div>
+                </div>
+            </div>
+          </div>
+       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section work-section" id="work" *ngIf="work">
+  <div class="inner-section h-100">
+    <div class="div_box h-100">
+        <div class="row mx-0 h-100">
+          <div class="inner-row">
+            <div class="row mx-0">
+              <swiper [config]="config">
+                  <div class="swiper-wrapper">
+                      <div class="swiper-slide slide-item" *ngFor="let thumbs of work.projects">
+                        <div class="img-box">
+                          <div class="img-wrapper">
+                            <div class="img-overlay"><img src="{{thumbs.img}}" class="img-fluid"/></div>
+                          </div>
+                          <div class="img-content">
+                            <h2 class="title"><!--<span class="number">{{thumbs.p_id}}.</span>--> {{thumbs.title}}</h2>
+                            <p class="keywords">{{thumbs.sub_title}}</p>
+                            <a href="" class="link"><span>View More</span></a>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <!-- Add Pagination -->
+                  <div class="swiper-pagination"></div>
+                  <!-- Add Arrows -->
+                  <!-- <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div> -->
+              </swiper>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-section" id="contact" *ngIf="contact">
+    <div class="inner-section h-100">
+      <div class="div_box h-100">
+         <div class="row mx-0 h-100">
+            <div class="inner-row">
+                <div class="contact-info">
+                  <div class="row mx-0">
+                    <div class="col col-4">
+                        <h5><i class="fa fa-phone"></i> <a href="{{contact.email}}">{{contact.mobile}}</a></h5>
+                    </div>
+                    <div class="col col-4">
+                        <h5><i class="fa fa-envelope"></i> <a href="mailto:{{contact.email}}">{{contact.email}}</a></h5>
+                    </div>
+                    <div class="col col-4">
+                        <h5><i class="fa fa-map-marker"></i> <a href="#">{{contact.location}}</a></h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="contact-form">
+                  <form>
+                    <div class="row mx-0">
+                       <div class="col col-6">
+                         <div class="col-inner">
+                          <input placeholder="Name" class="form-control"/>
+                          <input placeholder="Email" class="form-control"/>
+                        </div>
+                       </div>
+                       <div class="col col-6">
+                          <div class="col-inner">
+                            <textarea placeholder="Message" class="form-control"></textarea>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row mx-0">
+                      <div class="col col-12 text-right">
+                        <div class="col-inner">
+                          <button class="btn text-uppercase">Send Message</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="social-links">
+                  <div class="row mx-0">
+                    <div class="col-12">
+                      <div class="col-inner">
+                          <a href="#"><img src="assets/img/git_logo.png" class="img-fluid"/></a>
+                          <a href="#"><img src="assets/img/behance_logo.png" class="img-fluid"/></a>
+                          <a href="#"><img src="assets/img/insta_logo.png" class="img-fluid"/></a>
+                          <a href="#"><img src="assets/img/linked_in_logo.png" class="img-fluid"/></a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</section>

@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpModule } from '@angular/http';
+import { SwiperModule } from 'angular2-useful-swiper';
+import {ScrollToModule} from 'ng2-scroll-to';
 
 import { AppComponent } from './app.component';
 
@@ -10,7 +12,10 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    SwiperModule,
+    ScrollToModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,39 @@
+/* Buzz */
+@-webkit-keyframes hvr-buzz {
+    50% {
+      -webkit-transform: translateX(3px) rotate(2deg);
+      transform: translateX(3px) rotate(2deg);
+    }
+    100% {
+      -webkit-transform: translateX(-3px) rotate(-2deg);
+      transform: translateX(-3px) rotate(-2deg);
+    }
+  }
+  @keyframes hvr-buzz {
+    50% {
+      -webkit-transform: translateX(3px) rotate(2deg);
+      transform: translateX(3px) rotate(2deg);
+    }
+    100% {
+      -webkit-transform: translateX(-3px) rotate(-2deg);
+      transform: translateX(-3px) rotate(-2deg);
+    }
+  }
+
+
+/*topToBottom Animation*/
+@keyframes rotateWordsFirst {
+  0% { opacity: 1; animation-timing-function: ease-in; height: 0px; }
+  8% { opacity: 1; height: 60px; }
+  19% { opacity: 1; height: 60px; }
+  25% { opacity: 0; height: 60px; }
+  100% { opacity: 0; }
+}
+
+@keyframes rotateWordsFirst1 {
+  0% { opacity: 1; animation-timing-function: ease-in; height: 0px; }
+  8% { opacity: 1; height: 60px; }
+  19% { opacity: 1; height: 60px; }
+  25% { opacity: 0; height: 60px; }
+  100% { opacity: 0; }
+}
