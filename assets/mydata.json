@@ -1,0 +1,147 @@
+{
+	"menu": [
+		{
+			"name": "Home",
+			"link": "#home"
+		},
+		{
+			"name": "About",
+			"link": "#about"
+		},
+		{
+			"name": "Resume",
+			"link": "#resume"
+		},
+		{
+			"name": "Portfolio",
+			"link": "#work"
+		},
+		{
+			"name": "Contact",
+			"link": "#contact"
+		}
+	],
+	"intro":{
+		"title": "Hello!",
+		"name": "I'm <span class='inspan'>S</span><span>a</span><span>m</span><span>i</span><span>r</span> Ghag",
+		"profile": "UI/UX Designer & Front End Developer",
+		"skills": [
+			{ "lang": "HTML5/CSS3" },
+			{ "lang": "SASS/LESS" },
+			{ "lang": "JAVASCRIPT/JQUERY" },
+			{ "lang": "BOOTSTRAP 3/4" }							
+		]
+	},
+	"about":{
+		"title": "About Me",
+		"about_txt": [
+			{ "txt": "I’m Samir Ghag, a UI/UX designer & Front-end Developer based in Mumbai with over 2 years experience."},
+			{ "txt": "My true passion is all about User experience and User Interface Design. Always keeping it simple, clean and effective. This is my mantra and method. Clean code, fussfree interfaces and expert execution, design as it should be."},
+			{ "txt": "I truly believe in delivering a beutiful product. I like Beautiful Apps. Good looking websites. Cricket. Love nearly all genres of music. And many other things!"}
+		],
+		"img":"http://localhost:4200/assets/img/about-img.jpg"
+	},
+	"resume":{
+		"edu_title" : "Education",
+		"education":[
+				{
+					"title": "Bachelor Degree",
+					"from": "YCMOU University, Mumbai",
+					"session": "session: 2014-2017"
+				},
+				{
+					"title": "Web Design Course",
+					"from": "St. Angelos Institute, Mumbai",
+					"session": "session: 2015-2017"
+				}	
+			],		
+		"exp_title" : "Experience",
+		"experience": [
+			{
+				"title": "Web Designer & Developer",
+				"company": "IBL Online Solutions, Mumbai",
+				"session": "session: 2015-2016"
+			},
+			{
+				"title": "Front End Developer",
+				"company": "Creative Orange, Mumbai",
+				"session": "session: 2016-2018"
+			}
+		]
+			
+	},
+	"portfolio":{
+		"section_title": "My Work",
+		"projects": [
+			{
+				"p_id": "01",
+				"title": "Fudpro",
+				"sub_title": "Mobile App Design",
+				"img": "http://localhost:4200/assets/img/fudpro.jpg",
+				"desc": ""
+			},
+			{
+				"p_id": "02",
+				"title": "TSEC",
+				"sub_title": "Mobile App Design",
+				"img": "http://localhost:4200/assets/img/tsec.jpg",
+				"desc": ""
+			},
+			{
+				"p_id": "03",
+				"title": "Profilo",
+				"sub_title": "Mobile App Design",
+				"img": "http://localhost:4200/assets/img/profilo.jpg",
+				"desc": ""
+			},
+			{
+				"p_id": "04",
+				"title": "AllisWell India",
+				"sub_title": "Website Design",
+				"img": "http://localhost:4200/assets/img/alliswell.jpg",
+				"desc": ""
+			},
+			{
+				"p_id": "04",
+				"title": "Procreate",
+				"sub_title": "Website Design",
+				"img": "http://localhost:4200/assets/img/procreate.jpg",
+				"desc": ""
+			},
+			{
+				"p_id": "05",
+				"title": "Prognosys",
+				"sub_title": "Website Design",
+				"img": "http://localhost:4200/assets/img/prognosys.jpg",
+				"desc": ""
+			},
+			{
+				"p_id": "06",
+				"title": "Soulesence",
+				"sub_title": "Ecommerce Website Design",
+				"img": "http://localhost:4200/assets/img/soulesence.jpg",
+				"desc": ""
+			},
+			{
+				"p_id": "07",
+				"title": "Texclo",
+				"sub_title": "Wordpress Website Design",
+				"img": "http://localhost:4200/assets/img/texclo.jpg",
+				"desc": ""
+			}
+		]
+
+	},
+	"contact":{
+		"title": "Contact Me",
+		"email": "samirghag18@gmail.com",
+		"mobile": "+91 9967960598",
+		"location": "Mumbai, India",
+		"social_links" : {
+			"git": "",
+			"behance": "",
+			"insta": "",
+			"linked_in": ""
+		}
+	}
+}
