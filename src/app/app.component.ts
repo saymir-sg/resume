@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  // templateUrl: './app.component.html',
+  template: `
+    <h1>Angular 6 Update</h1>
+  `,
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
@@ -25,16 +28,16 @@ export class AppComponent {
   count = 0;
 
 
-  config: SwiperOptions = {
-    pagination: '.swiper-pagination',
-    paginationClickable: true,
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    spaceBetween: 30,
-    direction: 'vertical'
-  };
+  // config: SwiperOptions = {
+  //   pagination: '.swiper-pagination',
+  //   paginationClickable: true,
+  //   nextButton: '.swiper-button-next',
+  //   prevButton: '.swiper-button-prev',
+  //   spaceBetween: 30,
+  //   direction: 'vertical'
+  // };
 
-  constructor(private http: Http)  {
+  constructor(private http: HttpClient)  {
     // window.addEventListener("mousedown", this.mouseDown);
     // window.addEventListener("mouseup", this.mouseUp);
   }
@@ -69,8 +72,10 @@ export class AppComponent {
   
 
   getData(){  
-    return this.http.get('./assets/mydata.json')  
-      .map(res  => res.json())
+    return this.http.get('./assets/mydata.json')
+    .pipe(
+      map(res  => res)
+    );
   }
 
   // mouseDown = (ev: MouseEvent) => {
