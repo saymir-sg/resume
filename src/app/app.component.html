@@ -3,33 +3,33 @@
 <div class="fixed-bar left-bar"></div>
 <div class="fixed-bar right-bar"></div> -->
 
-<div class="w-100 h-100 grids-container">
-  <div class="grids_div">
-    <div style="background-image:url('assets/img/grid.png');"></div>
+<div class="w-full h-full flexs-container">
+  <div class="flexs_div">
+    <div style="background-image:url('assets/img/flex.png');"></div>
   </div>
-  <div class="grids_div">
-    <div style="background-image:url('assets/img/grid.png');"></div>
+  <div class="flexs_div">
+    <div style="background-image:url('assets/img/flex.png');"></div>
   </div>
-  <div class="grids_div">
-    <div style="background-image:url('assets/img/grid.png');"></div>
+  <div class="flexs_div">
+    <div style="background-image:url('assets/img/flex.png');"></div>
   </div>
-  <div class="grids_div">
-    <div style="background-image:url('assets/img/grid.png');"></div>
+  <div class="flexs_div">
+    <div style="background-image:url('assets/img/flex.png');"></div>
   </div>
-  <div class="grids_div">
-    <div style="background-image:url('assets/img/grid.png');"></div>
+  <div class="flexs_div">
+    <div style="background-image:url('assets/img/flex.png');"></div>
   </div>
-  <div class="grids_div">
-    <div style="background-image:url('assets/img/grid.png');"></div>
+  <div class="flexs_div">
+    <div style="background-image:url('assets/img/flex.png');"></div>
   </div>
-  <div class="grids_div">
-    <div style="background-image:url('assets/img/grid.png');"></div>
+  <div class="flexs_div">
+    <div style="background-image:url('assets/img/flex.png');"></div>
   </div>
 </div>
 
 <nav class="navbar fixed-top bg-transparent">
-  <div class="row w-100">
-      <a class="navbar-brand" href="#"><img src="assets/img/logo.png"></a>
+  <div class="flex w-full relative items-center max-w-screen-xl m-auto">
+      <a class="navbar-brand" href="#"><img src="assets/img/logo.png" class="w-20"></a>
       <div class="button_container" id="toggle" (click)='toggleMenu()' [ngClass]="activeClass ? 'active' : ''">
         <span class="top"></span>
         <span class="middle"></span>
@@ -52,7 +52,7 @@
         </li>
       </ul>
       <div class="contact-info">
-          <div class="row">
+          <div class="flex">
               <h5><i class="fa fa-phone"></i> <a href="{{contact.email}}">{{contact.mobile}}</a></h5>
               <h5><i class="fa fa-envelope"></i> <a href="mailto:{{contact.email}}">{{contact.email}}</a></h5>
           </div>
@@ -62,55 +62,51 @@
     </nav>
 </div>
 
-<section class="section home-section" id="home">
-  <div class="inner-section h-100">
-     <div class="div_box h-100">
-        <div class="row mx-0 h-100">
-            <div class="jumbotron" *ngIf="intro">
-                <h1 class="animated fadeInLeft">{{intro.title}}</h1>
-                <h2 class="animated fadeInRight" [innerHTML]="intro.name"></h2>
-                <h4 class="animated fadeInLeft">{{intro.profile}}</h4>
-            </div>
-            <span class="inner-circle circle1"></span>
-            <span class="inner-circle circle2"></span> 
+<section class="section home-section flex min-h-screen" id="home">
+  <div class="flex inner-section h-full w-full max-w-screen-xl m-auto">
+     <div class="div_box h-full">
+        <div class="flex mx-0 h-full items-center content-center relative flex-col">
+          <div class="jumbotron" *ngIf="intro">
+              <h1 class="animated fadeInLeft text-3xl font-bold underline">{{intro.title}}</h1>
+              <h2 class="animated fadeInRight" [innerHTML]="intro.name"></h2>
+              <h4 class="animated fadeInLeft">{{intro.profile}}</h4>
           </div>
+          <span class="inner-circle circle1"></span>
+          <span class="inner-circle circle2"></span> 
+        </div>
      </div>
   </div>
 </section>
 
-<section class="section about-section" id="about" *ngIf="about">
-  <div class="inner-section h-100">
-    <div class="div_box h-100">
-      <div class="row mx-0 h-100">
-        <div class="inner-row">
-          <div class="row mx-0">
-            <div class="col-md-4">
-              <img src="{{about.img}}" class="img-fluid"/>
-              <span class="inner-circle circle1"></span>
-              <span class="inner-circle circle2"></span>
+<section class="section about-section flex min-h-screen" id="about" *ngIf="about">
+  <div class="inner-section h-full w-full max-w-screen-xl m-auto">
+    <div class="div_box h-full w-full ">
+      <div class="flex mx-0 h-full items-center content-center">
+        <div class="basis-1/3">
+          <img src="{{about.img}}" class="img-fluid"/>
+          <span class="inner-circle circle1"></span>
+          <span class="inner-circle circle2"></span>
+        </div>
+        <div class="basis-2/3">
+            <h2 class="title">{{about.title}}</h2>
+            <div class="content">
+                <p class="txt" *ngFor="let txt of about.about_txt">{{txt.txt}}</p>
             </div>
-            <div class="col-md-8">
-                <h2 class="title">{{about.title}}</h2>
-                <div class="content">
-                   <p class="txt" *ngFor="let txt of about.about_txt">{{txt.txt}}</p>
-                </div>
-                <!-- <div class="content" [innerHTML]="about.about_txt.join('')"></div> -->
-            </div>
-          </div>
+            <!-- <div class="content" [innerHTML]="about.about_txt.join('')"></div> -->
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section resume-section" id="resume" *ngIf="resume">
-  <div class="inner-section h-100">
-    <div class="div_box h-100">
-       <div class="row mx-0 h-100">
-          <div class="inner-row">
+<!-- <section class="section resume-section min-h-screen" id="resume" *ngIf="resume">
+  <div class="inner-section h-full w-full max-w-screen-xl m-auto">
+    <div class="div_box h-full">
+       <div class="flex mx-0 h-full">
+          <div class="inner-flex">
             <div class="education-wrapper">
       
-                <div class="row mx-0">
+                <div class="flex mx-0">
                     <div class="col col-2">
                         <h2 class="title mb-0">{{resume.edu_title}}</h2>
                     </div>
@@ -124,7 +120,7 @@
                 </div>
             </div>
             <div class="experience-wrapper">
-                <div class="row mx-0">
+                <div class="flex mx-0">
                     <div class="col col-2 order-last">
                         <h2 class="title mb-0">{{resume.exp_title}}</h2>
                     </div>
@@ -141,15 +137,15 @@
        </div>
     </div>
   </div>
-</section>
+</section> -->
 
-<section class="section work-section" id="work" *ngIf="work">
-  <div class="inner-section h-100">
-    <div class="div_box h-100">
-        <div class="row mx-0 h-100">
-          <div class="inner-row">
-            <div class="row mx-0">
-              <swiper [config]="config">
+<!-- <section class="section work-section min-h-screen" id="work" *ngIf="work">
+  <div class="inner-section h-full w-full max-w-screen-xl m-auto">
+    <div class="div_box h-full">
+        <div class="flex mx-0 h-full">
+          <div class="inner-flex">
+            <div class="flex mx-0"> -->
+              <!-- <swiper [config]="config">
                   <div class="swiper-wrapper">
                       <div class="swiper-slide slide-item" *ngFor="let thumbs of work.projects">
                         <div class="img-box">
@@ -157,61 +153,63 @@
                             <div class="img-overlay"><img src="{{thumbs.img}}" class="img-fluid"/></div>
                           </div>
                           <div class="img-content">
-                            <h2 class="title"><!--<span class="number">{{thumbs.p_id}}.</span>--> {{thumbs.title}}</h2>
+                            <h2 class="title"> -->
+                              <!--<span class="number">{{thumbs.p_id}}.</span>--> 
+                              <!-- {{thumbs.title}}</h2>
                             <p class="keywords">{{thumbs.sub_title}}</p>
                             <a href="" class="link"><span>View More</span></a>
                           </div>
                         </div>
                       </div>
-                  </div>
+                  </div> -->
                   <!-- Add Pagination -->
-                  <div class="swiper-pagination"></div>
-                  <!-- Add Arrows -->
+                  <!-- <div class="swiper-pagination"></div> -->
+                  <!-- Add Arflexs -->
                   <!-- <div class="swiper-button-next"></div>
                   <div class="swiper-button-prev"></div> -->
-              </swiper>
-            </div>
+              <!-- </swiper> -->
+            <!-- </div>
           </div>
         </div>
     </div>
   </div>
-</section>
+</section> -->
 
-<section class="section contact-section" id="contact" *ngIf="contact">
-    <div class="inner-section h-100">
-      <div class="div_box h-100">
-         <div class="row mx-0 h-100">
-            <div class="inner-row">
+<section class="section contact-section flex min-h-screen" id="contact" *ngIf="contact">
+    <div class="inner-section h-full w-full max-w-screen-xl m-auto">
+      <div class="div_box h-full">
+         <div class="mx-0 h-full">
+            <div class="inner-flex">
                 <div class="contact-info">
-                  <div class="row mx-0">
-                    <div class="col col-4">
+                  <div class="flex mx-0">
+                    <div class="basis-1/3">
                         <h5><i class="fa fa-phone"></i> <a href="{{contact.email}}">{{contact.mobile}}</a></h5>
                     </div>
-                    <div class="col col-4">
+                    <div class="basis-1/3">
                         <h5><i class="fa fa-envelope"></i> <a href="mailto:{{contact.email}}">{{contact.email}}</a></h5>
                     </div>
-                    <div class="col col-4">
+                    <div class="basis-1/3">
                         <h5><i class="fa fa-map-marker"></i> <a href="#">{{contact.location}}</a></h5>
                     </div>
                   </div>
                 </div>
                 <div class="contact-form">
                   <form>
-                    <div class="row mx-0">
-                       <div class="col col-6">
+                    <div class="flex mx-0">
+                       <div class="basis-1/2">
                          <div class="col-inner">
                           <input placeholder="Name" class="form-control"/>
                           <input placeholder="Email" class="form-control"/>
                         </div>
                        </div>
-                       <div class="col col-6">
+                       <div class="basis-1/2">
                           <div class="col-inner">
                             <textarea placeholder="Message" class="form-control"></textarea>
                           </div>
                         </div>
                     </div>
-                    <div class="row mx-0">
-                      <div class="col col-12 text-right">
+                    <div class="flex mx-0">
+                      <div class="basis-full text-right">
                         <div class="col-inner">
                           <button class="btn text-uppercase">Send Message</button>
                         </div>
@@ -220,8 +218,8 @@
                   </form>
                 </div>
                 <div class="social-links">
-                  <div class="row mx-0">
-                    <div class="col-12">
+                  <div class="flex mx-0">
+                    <div class="basis-full">
                       <div class="col-inner">
                           <a href="#"><img src="assets/img/git_logo.png" class="img-fluid"/></a>
                           <a href="#"><img src="assets/img/behance_logo.png" class="img-fluid"/></a>

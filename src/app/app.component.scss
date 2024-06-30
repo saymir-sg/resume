@@ -1,44 +1,44 @@
-@import '~scss/variables';
-@import '~scss/mixins';
-@import '~scss/hover';
+@import '../scss/variables';
+@import '../scss/mixins';
+@import '../scss/hover';
 
-// .fixed-bar{
-//   position: fixed;
-//   z-index: 3;
-//   display: flex;
-//   -webkit-box-pack: center;
-//   -webkit-justify-content: center;
-//   -ms-flex-pack: center;
-//   justify-content: center;
-//   -webkit-box-align: center;
-//   -webkit-align-items: center;
-//   -ms-flex-align: center;
-//   align-items: center;
-//   &.bottom-bar{
-//     bottom: 0;
-//     height: 40px;
-//     width:100%;
-//     background: linear-gradient(to right, $bg-gradient);
-//   }
-//   &.top-bar{
-//     top: 0;
-//     height: 40px;
-//     width:100%;
-//     background: linear-gradient(to left, $bg-gradient);
-//   }
-//   &.left-bar{
-//     left: 0;
-//     width: 40px;
-//     height:100%;
-//     background: linear-gradient(to top, $bg-gradient);
-//   }
-//   &.right-bar{
-//     right: 0;
-//     width: 40px;
-//     height:100%;
-//     background: linear-gradient(to bottom, $bg-gradient);
-//   }
-// }
+.fixed-bar{
+  position: fixed;
+  z-index: 3;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  &.bottom-bar{
+    bottom: 0;
+    height: 40px;
+    width:100%;
+    background: linear-gradient(to right, $bg-gradient);
+  }
+  &.top-bar{
+    top: 0;
+    height: 40px;
+    width:100%;
+    background: linear-gradient(to left, $bg-gradient);
+  }
+  &.left-bar{
+    left: 0;
+    width: 40px;
+    height:100%;
+    background: linear-gradient(to top, $bg-gradient);
+  }
+  &.right-bar{
+    right: 0;
+    width: 40px;
+    height:100%;
+    background: linear-gradient(to bottom, $bg-gradient);
+  }
+}
 
 .grids-container{
     position: absolute;
@@ -62,66 +62,55 @@
 
 .navbar{
     background-color: $bg-dark;
-      .row{
-        position: relative;
-        align-items: center;
-        max-width: 1280px;
-        margin: auto;
-        .navbar-brand{
-          img{
-            width: 90px;
-          }
+    .button_container {
+        height: 27px;
+        width: 30px;
+        cursor: pointer;
+        z-index: 100;
+        -webkit-transition: opacity .25s ease;
+        transition: opacity .25s ease;
+        position: absolute;
+        right: 0;
+        &:hover {
+        opacity: 1;
         }
-        .button_container {
-          height: 27px;
-          width: 30px;
-          cursor: pointer;
-          z-index: 100;
-          -webkit-transition: opacity .25s ease;
-          transition: opacity .25s ease;
-          position: absolute;
-          right: 0;
-            &:hover {
-              opacity: 1;
-            }
-            
-            &.active {
-              .top {
-                transform: translateY(9px) translateX(0) rotate(45deg);
-                background: $dark-md-blue;
-  
-              }
-              .middle {
-                opacity: 0;
-              }
-              .bottom {
-                transform: translateY(-9px) translateX(0) rotate(-45deg);
-                width: 100%;
-                background: $dark-md-blue;
-              }
-            }
-            
-            span {
-              background: $dark-md-blue;
-              border: none;
-              height: 4px;
-              width: 100%;
-              position: absolute;
-              top: 0;
-              left: 0;
-              transition:  all .35s ease;
-              cursor: pointer;
-              border-radius: 10px;
-              &:nth-of-type(2) {
-                top: 9px;
-                width: 70%;
-              }
-              
-              &:nth-of-type(3) {
-                top: 18px;
-                width: 90%;
-              }
-            }
+          
+        &.active {
+        .top {
+            transform: translateY(9px) translateX(0) rotate(45deg);
+            background: $dark-md-blue;
+
+        }
+        .middle {
+            opacity: 0;
+        }
+        .bottom {
+            transform: translateY(-9px) translateX(0) rotate(-45deg);
+            width: 100%;
+            background: $dark-md-blue;
+        }
+        }
+          
+        span {
+        background: $dark-md-blue;
+        border: none;
+        height: 4px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition:  all .35s ease;
+        cursor: pointer;
+        border-radius: 10px;
+        &:nth-of-type(2) {
+            top: 9px;
+            width: 70%;
+        }
+        
+        &:nth-of-type(3) {
+            top: 18px;
+            width: 90%;
+        }
         }
       }
 }
@@ -309,9 +298,9 @@
 }
 
 .section{
-    min-height: 705px;
-    height: 100%;
-    max-height: 768px;
+    // min-height: 705px;
+    // height: 100%;
+    // max-height: 768px;
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow-x: hidden;
@@ -323,15 +312,13 @@
     &:nth-child(odd){
         background-color: $bg-light;
         background-image:url('../assets/img/home-bg-02.png');
-        background-position: 108% 115%;
-        
+        background-position: 108% 115%; 
     }
     &:nth-child(even){
         // background:linear-gradient(to bottom, $bg-gradient-light);
         background-color: $bg-dark;
         background-image:url('../assets/img/home-bg-01.png');
-        background-position: -6% 120%;
-        
+        background-position: -6% 120%;  
     }
     &.home-section{
       .inner-section{
@@ -339,10 +326,6 @@
             background-position: 95% 60%;
             .div_box{
                 .row{
-                    justify-content: center;
-                    align-items: center;
-                    flex-direction: column;
-                    position: relative;
                     .jumbotron{
                       margin-bottom: 0;
                       position: relative;
