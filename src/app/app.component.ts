@@ -25,14 +25,14 @@ export class AppComponent {
   count = 0;
 
 
-  config: SwiperOptions = {
-    pagination: '.swiper-pagination',
-    paginationClickable: true,
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    spaceBetween: 30,
-    direction: 'vertical'
-  };
+  // config: SwiperOptions = {
+  //   pagination: '.swiper-pagination',
+  //   paginationClickable: true,
+  //   nextButton: '.swiper-button-next',
+  //   prevButton: '.swiper-button-prev',
+  //   spaceBetween: 30,
+  //   direction: 'vertical'
+  // };
 
   constructor(private http: Http)  {
     // window.addEventListener("mousedown", this.mouseDown);
