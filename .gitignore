@@ -42,3 +42,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+saymir-sg
+saymir-sg.pub
+package-lock.json
