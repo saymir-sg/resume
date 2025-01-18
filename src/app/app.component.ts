@@ -1,28 +1,37 @@
-import { Component } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { Component, ElementRef, HostListener, Inject, OnInit, Renderer2, ViewChild, inject } from '@angular/core';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { DOCUMENT } from '@angular/common';
+import { HeaderComponent } from './header/header.component';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { SVGIcons } from './constant';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  imports: [HeaderComponent, HomeComponent, FooterComponent, MatIconModule],
 })
-export class AppComponent {
-  
-  myData: any;
-  activeClass: boolean = false;
-  arrData: any;
-  intro: any;
-  contact: any;
-  about: any;
-  resume: any;
-  work: any;
-  menu: any;
-  activeSlide: any;
-  selected: string;
+export class AppComponent implements OnInit {
+  themeType: string;
+  private lastScrollTop = 0;
+  private rafId: number | null = null;
+  @ViewChild('mainElement', { static: true }) mainElement: ElementRef;
+  // myData: any;
+  // activeClass: boolean = false;
+  // arrData: any;
+  // intro: any;
+  // contact: any;
+  // about: any;
+  // resume: any;
+  // work: any;
+  // menu: any;
+  // activeSlide: any;
+  // selected: string;
 
-  count = 0;
+  // count = 0;
 
 
   // config: SwiperOptions = {
@@ -34,46 +43,40 @@ export class AppComponent {
   //   direction: 'vertical'
   // };
 
-  constructor(private http: HttpClient)  {
-    // window.addEventListener("mousedown", this.mouseDown);
-    // window.addEventListener("mouseup", this.mouseUp);
-  }
-  ngOnInit (){
-    
-
-    this.getData().subscribe(
-      data => {
-        this.arrData = data;
-        console.log(this.arrData);
-        this.intro = this.arrData['intro'];
-        this.about = this.arrData['about'];
-        this.resume = this.arrData['resume'];
-        this.contact= this.arrData['contact'];
-        this.work= this.arrData['portfolio'];
-        this.menu= this.arrData['menu'];
-      },
-      (err: HttpErrorResponse) => {
-        console.log (err.message);
-      }
-    );
-
+  constructor(
+    private renderer: Renderer2,
+    @Inject(DOCUMENT) private document: Document,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    this.themeType = 'dark-theme';
+    this.renderer.addClass(this.document.body, this.themeType);
   }
 
-  activeMenu(event: string){
-    this.activeClass = !this.activeClass;
-    this.selected = event
+  ngOnInit () {
+    SVGIcons.forEach(iconName => {
+      this.matIconRegistry.addSvgIcon(
+        iconName,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`assets/icons/${iconName}.svg`)
+      );
+    });
   }
-  toggleMenu(){
-    this.activeClass = !this.activeClass;
-  }
+
+  // activeMenu(event: string){
+  //   this.activeClass = !this.activeClass;
+  //   this.selected = event
+  // }
+  // toggleMenu(){
+  //   this.activeClass = !this.activeClass;
+  // }
   
 
-  getData(){  
-    return this.http.get('./assets/mydata.json')
-    .pipe(
-      map(res  => res)
-    );
-  }
+  // getData(){  
+  //   return this.http.get('./assets/mydata.json')
+  //   .pipe(
+  //     map(res  => res)
+  //   );
+  // }
 
   // mouseDown = (ev: MouseEvent) => {
   //   window.addEventListener("mousemove", this.mouseMove);
@@ -86,4 +89,38 @@ export class AppComponent {
   //     console.log(this.count);
   // }
 
+  changeTheme(): void {
+    this.themeType = this.themeType === 'dark-theme' ? 'light-theme' : 'dark-theme';
+    if (this.themeType === 'dark-theme') {
+      this.renderer.removeClass(this.document.body, 'dark-theme');
+      this.renderer.addClass(this.document.body, 'light-theme');
+    } else {
+      this.renderer.removeClass(this.document.body, 'light-theme');
+      this.renderer.addClass(this.document.body, 'dark-theme');
+    }
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const fullScrollLength = 600;
+    const maxMargin = 8.3333;
+    const decreasePerPx = (maxMargin / fullScrollLength);
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    const newMargin = Math.max(maxMargin - currentScroll * decreasePerPx, 0);
+
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId);
+    }
+
+    this.rafId = requestAnimationFrame(() => {
+      const maxBorderRadius = 4;
+      const borderRadius = Math.min(maxBorderRadius, newMargin * (maxBorderRadius / maxMargin));
+      this.renderer.setStyle(this.mainElement.nativeElement, 'margin-left', `${newMargin}%`);
+      this.renderer.setStyle(this.mainElement.nativeElement, 'margin-right', `${newMargin}%`);
+      this.renderer.setStyle(this.mainElement.nativeElement, 'border-top-left-radius', `${borderRadius}rem`);
+      this.renderer.setStyle(this.mainElement.nativeElement, 'border-top-right-radius', `${borderRadius}rem`);
+    });
+  
+    this.lastScrollTop = Math.max(currentScroll, 0);
+  }
 }

@@ -3,7 +3,7 @@
 <div class="fixed-bar left-bar"></div>
 <div class="fixed-bar right-bar"></div> -->
 
-<div class="w-full h-full flexs-container">
+<!-- <div class="w-full h-full flexs-container">
   <div class="flexs_div">
     <div style="background-image:url('assets/img/flex.png');"></div>
   </div>
@@ -25,9 +25,9 @@
   <div class="flexs_div">
     <div style="background-image:url('assets/img/flex.png');"></div>
   </div>
-</div>
+</div> -->
 
-<nav class="navbar fixed-top bg-transparent">
+<!-- <nav class="navbar fixed-top bg-transparent">
   <div class="flex w-full relative items-center max-w-screen-xl m-auto">
       <a class="navbar-brand" href="#"><img src="assets/img/logo.png" class="w-20"></a>
       <div class="button_container" id="toggle" (click)='toggleMenu()' [ngClass]="activeClass ? 'active' : ''">
@@ -36,9 +36,9 @@
         <span class="bottom"></span>
       </div>
   </div>
-</nav>
+</nav> -->
 
-<div class="overlay" id="overlay" [ngClass]="activeClass ? 'open' : ''" *ngIf="contact">
+<!-- <div class="overlay" id="overlay" [ngClass]="activeClass ? 'open' : ''" *ngIf="contact">
     <nav class="overlay-menu">
       <div class="social-links">
         <a href="#"><img src="assets/img/git_logo.png" class="img-fluid"/></a>
@@ -60,9 +60,9 @@
       <span class="inner-circle circle1"></span>
       <span class="inner-circle circle2"></span>
     </nav>
-</div>
+</div> -->
 
-<section class="section home-section flex min-h-screen" id="home">
+<!-- <section class="section home-section flex min-h-screen" id="home">
   <div class="flex inner-section h-full w-full max-w-screen-xl m-auto">
      <div class="div_box h-full">
         <div class="flex mx-0 h-full items-center content-center relative flex-col">
@@ -76,9 +76,9 @@
         </div>
      </div>
   </div>
-</section>
+</section> -->
 
-<section class="section about-section flex min-h-screen" id="about" *ngIf="about">
+<!-- <section class="section about-section flex min-h-screen" id="about" *ngIf="about">
   <div class="inner-section h-full w-full max-w-screen-xl m-auto">
     <div class="div_box h-full w-full ">
       <div class="flex mx-0 h-full items-center content-center">
@@ -92,12 +92,12 @@
             <div class="content">
                 <p class="txt" *ngFor="let txt of about.about_txt">{{txt.txt}}</p>
             </div>
-            <!-- <div class="content" [innerHTML]="about.about_txt.join('')"></div> -->
-        </div>
+            <div class="content" [innerHTML]="about.about_txt.join('')"></div> -->
+        <!--</div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- <section class="section resume-section min-h-screen" id="resume" *ngIf="resume">
   <div class="inner-section h-full w-full max-w-screen-xl m-auto">
@@ -174,7 +174,7 @@
   </div>
 </section> -->
 
-<section class="section contact-section flex min-h-screen" id="contact" *ngIf="contact">
+<!-- <section class="section contact-section flex min-h-screen" id="contact" *ngIf="contact">
     <div class="inner-section h-full w-full max-w-screen-xl m-auto">
       <div class="div_box h-full">
          <div class="mx-0 h-full">
@@ -233,4 +233,32 @@
           </div>
       </div>
     </div>
-</section>
+</section> -->
+
+<div class="fixed-grid w-full h-screen fixed top-0 left-0 right-0 grid grid-cols-12 divide-x divide-solid">
+  <div class="vertical-line"></div>
+  <div class="vertical-line"></div>
+  <div class="vertical-line"></div>
+  <div class="vertical-line"></div>
+  <div class="vertical-line"></div>
+  <div class="vertical-line"></div>
+  <div class="vertical-line"></div>
+  <div class="vertical-line"></div>
+  <div class="vertical-line"></div>
+  <div class="vertical-line"></div>
+  <div class="vertical-line"></div>
+  <div class="vertical-line"></div>
+</div>
+
+<app-header></app-header>
+<main #mainElement class="main opacity-1 slide-up-on-scroll pb-12">
+  <div class="container flex h-screen pt-16 mx-auto px-8">
+    @defer {
+      <a><mat-icon svgIcon="github"></mat-icon></a>
+      <a><mat-icon svgIcon="linked-in"></mat-icon></a>
+      <button (click)="changeTheme()">Change Theme</button>
+      <app-home> </app-home>
+    }
+  </div>
+</main>
+<app-footer></app-footer>
