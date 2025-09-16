@@ -235,28 +235,37 @@
     </div>
 </section> -->
 
+<div class="cursor-inner" #cursorInner></div>
+<div class="cursor-outer" #cursorOuter></div>
+
 <div class="fixed-grid w-full h-screen fixed top-0 left-0 right-0 grid grid-cols-12 divide-x divide-solid">
-  <div class="vertical-line"></div>
-  <div class="vertical-line"></div>
-  <div class="vertical-line"></div>
-  <div class="vertical-line"></div>
-  <div class="vertical-line"></div>
-  <div class="vertical-line"></div>
-  <div class="vertical-line"></div>
-  <div class="vertical-line"></div>
-  <div class="vertical-line"></div>
-  <div class="vertical-line"></div>
-  <div class="vertical-line"></div>
-  <div class="vertical-line"></div>
+  @for (line of lines; track line;) {
+
+    <div class="vertical-line"></div>
+  }
 </div>
 
 <app-header></app-header>
 <main #mainElement class="main opacity-1 slide-up-on-scroll pb-12">
   <div class="container flex h-screen pt-16 mx-auto px-8">
     @defer {
-      <a><mat-icon svgIcon="github"></mat-icon></a>
-      <a><mat-icon svgIcon="linked-in"></mat-icon></a>
-      <button (click)="changeTheme()">Change Theme</button>
+      <!-- dark/light mode -->
+      <!-- <div class="theme-toggle-wrapper fixed top-1/2 right-[7.5%] -translate-y-1/2 z-50 flex flex-col">
+        <div class="gradient-pill" [class.slide-up]="!isDark" [class.slide-down]="isDark"></div>
+        <button [class.active]="!isDark" (click)="setTheme('light')" aria-label="Light Mode" class="btn-light-mode p-2 rounded-full">
+          <mat-icon>light_mode</mat-icon>
+        </button>
+        <button [class.active]="isDark" (click)="setTheme('dark')" aria-label="Dark Mode"
+          class="btn-dark-mode p-2 rounded-full">
+          <mat-icon class="">dark_mode</mat-icon>
+        </button>
+      </div> -->
+      <div class="fixed-grid w-full h-screen fixed top-0 left-0 right-0 grid grid-cols-12 divide-x divide-solid">
+        @for (line of lines; track line;) {
+
+          <div class="vertical-line"></div>
+        }
+      </div>
       <app-home> </app-home>
     }
   </div>

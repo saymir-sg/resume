@@ -1,34 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './assets/styles/keyframes.scss';
 
-// @import 'scss/variables';
-// @import 'scss/mixins';
+:root {
+  --bg: #FAFAFA;
+  --surface: #FFFFFF;
+  --primary: #F97316;
+  --secondary: #06B6D4;
+  --tertiary: #22D3EE;
+  --accent: #10B981;
+  --text: #1F2937;
+  --text-muted: #6B7280;
+  --border: #E5E7EB;
+  --text-font: 'Source Code Pro', monospace;
+  --heading-font: 'Inter', sans-serif;
+}
 
-// html,body{
-//     font-family: $body-font;
-//     height: 100%;
-//     h1,h2,h3,h4,h5,h6{
-//         font-family: $heading-font;
-//     }
-// }
+.dark-theme {
+  --bg: #121212;
+  --surface: #1E1E1E;
+  --text: #F5F5F5;
+  --text-muted: #9CA3AF;
+  --border: #2A2A2A;
+}
+
+.font-source-code {
+  font-family: 'Source Code Pro', monospace;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
 
 @layer base {
-    html {
-      font-family: "Raleway", sans-serif;
+    html, body {
+      @extend .font-source-code;
     }
 }
 
 body {
     overflow-x: hidden;
-    &.dark-theme {
-        background-color: rgb(30,33,38);
-        color: #F8F5F2;
-    }
-    &.light-theme {
-        background-color: #F8F5F2;
-        color: #1d1f21;
-    }
+    background-color: var(--surface);
+    color: var(--text);
+    cursor: none;
+    margin: 0;
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @extend .font-inter;
 }
 
 
@@ -38,5 +60,13 @@ body {
 // color: rgb(25,27,31);
 // #F8F5F2
 // #FF8008
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.cursor-inner {
+  @apply w-2 h-2 rounded-full fixed top-0 left-0 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-50;
+  background-color: var(--tertiary);
+}
+
+.cursor-outer {
+  @apply w-8 h-8 rounded-full fixed top-0 left-0 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-50;
+  border: 1px solid var(--secondary);
+}

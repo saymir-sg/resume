@@ -1,5 +1,7 @@
-import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { SVGIcons } from '../constant';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-header',
@@ -8,27 +10,23 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   lastScrollTop = 0;
+  isDark: boolean = true;
   @ViewChild('headerContainer') container: ElementRef;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {}
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    let opacityValue = Math.max(0, 1 - currentScroll / 1000);
-    let translateYValue = Math.min(-50, - currentScroll / 100);
-    let transformValue = `translateY(${translateYValue}%)`;
-
-    // if (currentScroll > this.lastScrollTop) {
-    //   this.renderer.setStyle(this.container.nativeElement, 'transform', transformValue);
-    //   this.renderer.setStyle(this.container.nativeElement, 'opacity', opacityValue.toString());
-    // } else {
-    //   this.renderer.setStyle(this.container.nativeElement, 'transform', transformValue);
-    //   this.renderer.setStyle(this.container.nativeElement, 'opacity', opacityValue.toString());
-    // }
-
-    this.lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  ngOnInit() {
+    SVGIcons.forEach(iconName => {
+      console.log(`Registering icon: ${iconName}`);
+      this.matIconRegistry.addSvgIcon(
+        iconName,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`assets/icons/${iconName}.svg`)
+      );
+    });
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { authorDetails } from '../constant';
 
 @Component({
   selector: 'app-footer',
@@ -9,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
+  authorName = authorDetails.name;
 }
